@@ -201,7 +201,7 @@
 
 // alert("Hasta pronto"); 
 
-//codigo profe
+//codigo p
 
 //traemos el contenedor donde mostraremos los productos
 // let contenedor = document.getElementById("contenedor");
@@ -295,27 +295,27 @@ function buscarPorMarca() {
 }
 //buscar por modelo
 function buscarPorModelo() {
-    const modeloBuscado = prompt("Ingrese el modelo que desea buscar:( ejemplo: AMD 32gb ram y video rtx 4090 , Blade Stealth i7 )");
+    const modeloBuscado = prompt("Ingrese el modelo que desea buscar para ver si disponemos de stok : ( ejemplo: AMD 32gb ram y video rtx 4090 , Blade Stealth i7 )");
 
     if (modeloBuscado) {
         const productosModelo = productos.filter(producto => producto.modelo.toLowerCase().includes(modeloBuscado.toLowerCase()));
         mostrarResultados(productosModelo);
     } else {
-        alert("Ingrese un modelo disponible.");
+        alert("Ingrese un modelo disponible por favor.");
         buscarProductos();
     }
 }
 //buscar producto
 function buscarProductos() {
-    let opcionBusqueda;
+    let opcionesDeBusqueda;
     do {
-        opcionBusqueda = prompt(`
-        Opciones disponibles:
+        opcionesDeBusqueda = prompt(`
+        Como quieres buscar los productos :
         \n1. Buscar por marca
         \n2. Buscar por modelo 
         \n3. Exit`);
 
-        switch (opcionBusqueda) {
+        switch (opcionesDeBusqueda) {
             case "1":
                 buscarPorMarca();
                 break;
@@ -329,7 +329,7 @@ function buscarProductos() {
                 alert("Opción incorrecta. Elija una opción válida.");
                 break;
         }
-    } while (opcionBusqueda !== "3");
+    } while (opcionesDeBusqueda !== "3");
 }
 
 //ver resultados de los productos
@@ -352,7 +352,7 @@ function mostrarResultados(productosEncontrados) {
             alert("Elija una opción válida.");
         }
     } else {
-        alert("No se encontraron productos relacionados a la búsqueda.");
+        alert("No se encontraron los productos de la búsqueda.");
         buscarProductos();
     }
 }
