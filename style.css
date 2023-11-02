@@ -1,4 +1,13 @@
-
+/*header */
+.logo{
+    width: 65px;
+    height: 65px;
+    border-radius: 25px;
+}
+.body{
+    background-color: blueviolet;
+    color: white;
+}
 .oscuro{
     background-color: black;
     color: white;
