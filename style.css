@@ -1,7 +1,9 @@
 /*header */
 header nav{
-    background-color:black;
-    color: white;
+    background-color:grey;
+}
+header nav ul li a{
+    color:;
 }
 .logo{
     width: 65px;
@@ -18,9 +20,14 @@ header nav{
     color: greenyellow;
     border: 2px solid greenyellow;
 }
-.body{
+.header{
     background-color: blueviolet;
-    color: white;
+    color: black;
+}
+.carrusel img{
+    width: 60px;
+    height: 60px;
+    
 }
 /* .oscuro{
     background-color: black;
