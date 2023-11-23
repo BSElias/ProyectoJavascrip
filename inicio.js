@@ -450,44 +450,54 @@
 let total = 0;
 let carrito = [];
 
+// localStorage 
+if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+    total = carrito.reduce((sum, product) => sum + product.precio, 0);
+}
+
 // Productos
 const productos = [
     {
         marca: "ASUS Notebook i7",
         modelo: "TUF Gamer i7",
-        imagen: "",
         precio: 2100,
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_714144-MLA52160876834_102022-O.webp",
+        
     },
     {
         marca: "Razer Notebook i7",
         modelo: "Blade Stealth i7",
-        imagen: "",
         precio: 2200,
+        imagen: "https://cdn.mos.cms.futurecdn.net/EZtnh9k9vfAcJupEheRt4d-768-80.jpg.webp",
     },
     {
         marca: "Intel 16gb Pc Gamer",
         modelo: "Intel 16g ram y video rtx 3090",
-        imagen: "",
         precio: 1500,
+        imagen: "https://images.unsplash.com/photo-1587202372583-49330a15584d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
         marca: "AMD 16gb Pc Gamer",
         modelo: "AMD 16g ram y video rtx 3090",
         precio: 1600,
+        imagen: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
         marca: "Intel 32gb Pc Gamer",
         modelo: "Intel 32gb ram y video rtx 4090",
         precio: 2200,
+        imagen: "https://images.unsplash.com/photo-1573053986275-840ffc7cc685?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
         marca: "AMD 32gb Pc Gamer",
         modelo: "AMD 32gb ram y video rtx 4090",
         precio: 2200,
+        imagen: "https://images.unsplash.com/photo-1613307446588-bd79208b1fe8?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
 ];
 
-// Función para mostrar productos.
+// display productos
 function displayProductos() {
     const productosLista = document.getElementById("productos-lista");
 
@@ -498,12 +508,17 @@ function displayProductos() {
         const card = document.createElement("div");
         card.classList.add("card");
 
+        const image = document.createElement("img");
+        image.classList.add("card-img-top");
+        image.src = producto.imagen;
+        image.alt = `${producto.marca} - ${producto.modelo}`;
+
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
 
         const cardTitle = document.createElement("h5");
         cardTitle.classList.add("card-title");
-        cardTitle.textContent = `${producto.marca} - ${producto.modelo} - ${producto.imagen}`;
+        cardTitle.textContent = `${producto.marca} - ${producto.modelo}`;
 
         const cardPrice = document.createElement("p");
         cardPrice.classList.add("card-text");
@@ -517,13 +532,14 @@ function displayProductos() {
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardPrice);
         cardBody.appendChild(addButton);
+        card.appendChild(image);
         card.appendChild(cardBody);
         col.appendChild(card);
         productosLista.appendChild(col);
     });
 }
 
-//Función para mostrar el carrito de compras
+// carrito
 function displayCarrito() {
     const carritoLista = document.getElementById("carrito-lista");
     const totalElement = document.getElementById("total");
@@ -543,54 +559,73 @@ function displayCarrito() {
     });
 }
 
-// Función para añadir un producto al carrito de compras
+// agregar al carrito
 function agregarAlCarrito(producto) {
     carrito.push(producto);
     total += producto.precio;
     displayCarrito();
-    alert(`${producto.marca} - ${producto.modelo} agregado al carrito.`);
+    saveToLocalStorage();
+    showSweetAlert("success", "¡Producto agregado!", `${producto.marca} - ${producto.modelo} se ha agregado al carrito.`);
 }
 
-//Función para eliminar un producto del carrito de compras
+// quitar del carrito
 function quitarDelCarrito(producto) {
     const index = carrito.indexOf(producto);
     if (index !== -1) {
         total -= producto.precio;
         carrito.splice(index, 1);
         displayCarrito();
-        alert(`${producto.marca} - ${producto.modelo} quitado del carrito.`);
+        saveToLocalStorage();
+        showSweetAlert("success", "¡Producto quitado!", `${producto.marca} - ${producto.modelo} se ha quitado del carrito.`);
     }
 }
 
-// Función para manejar el clic del botón "Comprar"
+// Función al hacer clic del botón "Comprar"
 document.getElementById("comprar-btn").addEventListener("click", comprar);
 
-// "Ver Carrito"
+// "Ver Carrito" al hacer click
 document.getElementById("ver-carrito-btn").addEventListener("click", verCarrito);
 
-//"Vaciar Carrito" 
+// F"Vaciar Carrito"  al hacer click
 document.getElementById("vaciar-carrito-btn").addEventListener("click", vaciarCarrito);
 
-
+// funcion al comprar
 function comprar() {
-    alert(`¡Compra realizada! Total: $${total}`);
+    showSweetAlert("success", "¡Compra realizada!", `Total: $${total}`);
     
 }
 
-// "Ver Carrito" 
+// funcion ver carrito
 function verCarrito() {
-    alert("Contenido del Carrito:\n" + carrito.map(item => `${item.marca} - ${item.modelo}`).join("\n"));
+    showSweetAlert("info", "Contenido del Carrito", carrito.map(item => `${item.marca} - ${item.modelo}`).join("\n"));
 }
 
-// "Vaciar Carrito" 
+// funcion  vaciar carrito
 function vaciarCarrito() {
     carrito = [];
     total = 0;
     displayCarrito();
-    alert("Carrito vaciado.");
+    saveToLocalStorage();
+    showSweetAlert("info", "Carrito vaciado", "El carrito se ha vaciado.");
 }
 
-// Mostrar productos y carrito de compras cuando se carga la página.
+// Función para guardar datos del carrito en localStorage
+function saveToLocalStorage() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Función para mostrar mensajes de SweetAlert2
+function showSweetAlert(icon, title, text) {
+    Swal.fire({
+        icon: icon,
+        title: title,
+        text: text,
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
+
+// Mostrar productos y carrito de compras cuando se carga la página
 displayProductos();
 displayCarrito();
 
