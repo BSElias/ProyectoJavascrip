@@ -1,18 +1,56 @@
-/*header */
+/*!---Header---*/
+header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+header nav{
+    background-color: rgba(166, 0, 255, 0.584);
+}
+.boton-nav{
+    border: 3px solid rgba(166, 0, 255, 0.486);
+    color: white;
+    transition: 1s;
+}
+.boton-nav:hover{
+    background-color:rgb(24, 226, 45);
+    color: black;
+}
 .logo{
     width: 70px;
     height: 70px;
     border-radius: 30px;
-    border: 3px solid #0000ff69;
+    /* border: 3px solid #0000ff69; */
+    border: 3px solid rgba(166, 0, 255, 0.486);
 }
-.header{
-    color: blue;
-}
-.main{
-    background-color: rgba(88, 11, 161, 0.509);
+/*!---Main---*/
+main{
     color: white;
     background-image: url(./img/fondo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     font-size: 28px;
+}
+h1{
+    text-align: center;
+}
+/*!---Footer---*/
+footer{
+    background-color: black;
+    padding: 50px;
+    text-align: center;
+}
+footer i{
+    font-size: 50px;
+    margin: 20px;
+    color: rgba(88, 11, 161, 0.509);
+    transition: 1s;
+}
+footer i:hover{
+    transform: scale(1.1);
+    color: rgb(24, 226, 45);
+    
 }
 #filter__input{
     display: block;

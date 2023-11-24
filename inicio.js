@@ -445,7 +445,7 @@
 
 // verMenu();
 
-//tercera entrega
+//Tercera entrega
 
 let total = 0;
 let carrito = [];
@@ -469,7 +469,7 @@ const productos = [
         marca: "Razer Notebook i7",
         modelo: "Blade Stealth i7",
         precio: 2200,
-        imagen: "https://cdn.mos.cms.futurecdn.net/EZtnh9k9vfAcJupEheRt4d-768-80.jpg.webp",
+        imagen: "https://i0.wp.com/www.inovamusicnet.com/wp-content/uploads/2022/04/71cBv543L.AC_SL600_.jpg?fit=600%2C459&ssl=1",
     },
     {
         marca: "Intel 16gb Pc Gamer",
@@ -497,7 +497,7 @@ const productos = [
     },
 ];
 
-// display productos
+// Display productos
 function displayProductos() {
     const productosLista = document.getElementById("productos-lista");
 
@@ -539,7 +539,7 @@ function displayProductos() {
     });
 }
 
-// carrito
+// Carrito
 function displayCarrito() {
     const carritoLista = document.getElementById("carrito-lista");
     const totalElement = document.getElementById("total");
@@ -559,7 +559,7 @@ function displayCarrito() {
     });
 }
 
-// agregar al carrito
+// Agregar al carrito
 function agregarAlCarrito(producto) {
     carrito.push(producto);
     total += producto.precio;
@@ -568,7 +568,7 @@ function agregarAlCarrito(producto) {
     showSweetAlert("success", "¡Producto agregado!", `${producto.marca} - ${producto.modelo} se ha agregado al carrito.`);
 }
 
-// quitar del carrito
+// Quitar del carrito
 function quitarDelCarrito(producto) {
     const index = carrito.indexOf(producto);
     if (index !== -1) {
@@ -586,21 +586,21 @@ document.getElementById("comprar-btn").addEventListener("click", comprar);
 // "Ver Carrito" al hacer click
 document.getElementById("ver-carrito-btn").addEventListener("click", verCarrito);
 
-// F"Vaciar Carrito"  al hacer click
+// "Vaciar Carrito"  al hacer click
 document.getElementById("vaciar-carrito-btn").addEventListener("click", vaciarCarrito);
 
-// funcion al comprar
+// Funcion al comprar
 function comprar() {
     showSweetAlert("success", "¡Compra realizada!", `Total: $${total}`);
     
 }
 
-// funcion ver carrito
+// Funcion ver carrito
 function verCarrito() {
     showSweetAlert("info", "Contenido del Carrito", carrito.map(item => `${item.marca} - ${item.modelo}`).join("\n"));
 }
 
-// funcion  vaciar carrito
+// Funcion  vaciar carrito
 function vaciarCarrito() {
     carrito = [];
     total = 0;
@@ -621,7 +621,7 @@ function showSweetAlert(icon, title, text) {
         title: title,
         text: text,
         showConfirmButton: false,
-        timer: 1500
+        timer: 1200,
     });
 }
 
