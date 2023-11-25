@@ -1,3 +1,11 @@
+/*!---Tipografia---*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,900;1,100;1,700&display=swap');
+
+/*!---Reset---*/
+*{
+    margin: 0;
+    padding: 0;
+}
 /*!---Header---*/
 header{
     position: sticky;
@@ -5,7 +13,10 @@ header{
     z-index: 10;
 }
 header nav{
-    background-color: rgba(166, 0, 255, 0.584);
+    background-color: black;
+}
+header nav i{
+    color: aquamarine;
 }
 .boton-nav{
     border: 3px solid rgba(166, 0, 255, 0.486);
@@ -20,19 +31,25 @@ header nav{
     width: 70px;
     height: 70px;
     border-radius: 30px;
-    /* border: 3px solid #0000ff69; */
     border: 3px solid rgba(166, 0, 255, 0.486);
 }
 /*!---Main---*/
 main{
     color: white;
     background-image: url(./img/fondo.jpg);
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     font-size: 28px;
 }
 h1{
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border: 6px solid rgba(166, 0, 255, 0.486);
+}
+h2{
     text-align: center;
 }
 /*!---Footer---*/
@@ -44,7 +61,7 @@ footer{
 footer i{
     font-size: 50px;
     margin: 20px;
-    color: rgba(88, 11, 161, 0.509);
+    color: rgba(166, 0, 255, 0.486);
     transition: 1s;
 }
 footer i:hover{
