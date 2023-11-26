@@ -5,6 +5,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 /*!---Header---*/
 header{
@@ -15,8 +16,13 @@ header{
 header nav{
     background-color: black;
 }
-header nav i{
-    color: aquamarine;
+.colornav{
+    color: rgba(166, 0, 255, 0.486);
+    transition: 1s;
+}
+.colornav:hover{
+    transform: scale(1.1);
+    color: greenyellow;
 }
 .boton-nav{
     border: 3px solid rgba(166, 0, 255, 0.486);
@@ -24,8 +30,8 @@ header nav i{
     transition: 1s;
 }
 .boton-nav:hover{
-    background-color:rgb(24, 226, 45);
-    color: black;
+    background-color:greenyellow;
+    color: white;
 }
 .logo{
     width: 70px;
@@ -65,9 +71,8 @@ footer i{
     transition: 1s;
 }
 footer i:hover{
+    color: greenyellow;
     transform: scale(1.1);
-    color: rgb(24, 226, 45);
-    
 }
 #filter__input{
     display: block;
