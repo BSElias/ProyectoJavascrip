@@ -32,6 +32,7 @@ header nav{
 .boton-nav:hover{
     background-color:greenyellow;
     color: white;
+    border: 2px solid white;
 }
 .logo{
     width: 70px;
