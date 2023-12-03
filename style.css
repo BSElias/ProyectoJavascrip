@@ -19,6 +19,7 @@ header nav{
 .colornav{
     color: rgba(166, 0, 255, 0.486);
     transition: 1s;
+    font-size: 15px;
 }
 .colornav:hover{
     transform: scale(1.1);
@@ -48,16 +49,32 @@ main{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    font-size: 28px;
+    font-size: 15px;
 }
 h1{
     text-align: center;
     color: white;
     font-family: 'Poppins', sans-serif;
-    border: 6px solid rgba(166, 0, 255, 0.486);
+    border: 6px double rgba(166, 0, 255, 0.486);
+    font-size: 35px;
+    padding: 15px;
+    text-shadow: 6px 6px 6px rgba(166, 0, 255, 0.67);
 }
 h2{
     text-align: center;
+    font-size: 24px;
+    text-shadow: 6px 6px 6px rgba(166, 0, 255, 0.632);
+}
+
+.card-img-custom {
+    width: 100%; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+}
+
+/*clase boton*/
+.co-boton{
+    background-color: rgba(166, 0, 255, 0.486);
+    color:greenyellow;
 }
 /*!---Footer---*/
 footer{

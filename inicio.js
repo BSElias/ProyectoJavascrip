@@ -480,7 +480,7 @@ async function displayProductos() {
         card.classList.add("card");
 
         const image = document.createElement("img");
-        image.classList.add("card-img-top");
+        image.classList.add("card-img-top","card-img-custom");
         image.src = producto.imagen;
         image.alt = `${producto.marca} - ${producto.modelo}`;
 
