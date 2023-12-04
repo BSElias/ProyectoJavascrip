@@ -611,28 +611,27 @@ function showSweetAlert(icon, title, text) {
 displayProductos();
 displayCarrito();
 
-
-// Funcion para actualizar el contador del carrito en la barra de navegacion
-function actualizarContadorCarrito() {
-    const contadorCarrito = document.getElementById("contador__carrito");
-    contadorCarrito.textContent = `(${carrito.length})`;
+// Funcion para mostrar y ocultar el c del carrito en la barra de navegacion
+function toggleCarritoNavbar() {
+    const carritoContainer = document.getElementById("carrito-container");
+    carritoContainer.style.display = carritoContainer.style.display === "none" ? "block" : "none";
 }
-// Funcion para vaciar el carrito 
+
+// Funcion para vaciar el carrito desde el contenedor en la barra de navegacion
 function vaciarCarritoNavbar() {
     vaciarCarrito();
     actualizarContadorCarrito();
+    toggleCarritoNavbar();
 }
-// Funcion para mostrar el carrito 
-function mostrarCarritoNavbar() {
-    verCarrito(); // Llama a tu funcion existente para mostrar el carrito
-}
-// Funcion para realizar la compra 
+
+// Funcion para realizar la compra desde el contenedor en la barra de navegacion
 function comprarDesdeNavbar() {
     comprar();
     actualizarContadorCarrito();
+    toggleCarritoNavbar();
 }
 
-// Asigna eventos a los botones 
-document.getElementById("ver-carrito-btn").addEventListener("click", mostrarCarritoNavbar);
+// Asigna eventos al botón en la barra de navegacion
+document.getElementById("ver-carrito-btn").addEventListener("click", toggleCarritoNavbar);
 document.getElementById("vaciar-carrito-btn").addEventListener("click", vaciarCarritoNavbar);
 document.getElementById("comprar-btn").addEventListener("click", comprarDesdeNavbar);

@@ -29,12 +29,12 @@
                                 Lista
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item colornav" href="#">ASUS Notebook i7</a></li>
-                                <li><a class="dropdown-item colornav" href="#">Razer Notebook i7</a></li>
+                                <li><a class="dropdown-item colornav" href="./img/note/Asus.jpg">ASUS Notebook i7</a></li>
+                                <li><a class="dropdown-item colornav" href="./img/note/Razer.jpg">Razer Notebook i7</a></li>
                                 <li><a class="dropdown-item colornav" href="#">Intel 16gb Pc Gamer</a></li>
                                 <li><a class="dropdown-item colornav" href="#">AMD 16gb Pc Gamer</a></li>
                                 <li><a class="dropdown-item colornav" href="#">Intel 32gb Pc Gamer</a></li>
-                                <li><a class="dropdown-item col ornav" href="#">AMD 32gb Pc Gamer</a></li>
+                                <li><a class="dropdown-item colornav" href="#">AMD 32gb Pc Gamer</a></li>
                                 <li><a class="dropdown-item colornav" href="#">Intel 64gb Pc Gamer</a></li>
                                 <li><a class="dropdown-item colornav" href="#">AMD 64gb Pc Gamer</a></li>
                             </ul>
@@ -42,24 +42,19 @@
                     </ul>
                 </div>
             </div>
-            <!-- Carrito nav -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
+                    <li class="nav-item">
                         <a class="nav-link" href="#" id="ver-carrito-btn">
                             <i class="bi bi-cart colornav"></i> Carrito
                             <span id="contador__carrito">(0)</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="vaciar-carrito-btn">
-                            <i class="bi bi-trash colornav"></i> Vaciar Carrito
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="comprar-btn">
-                            <i class="bi bi-credit-card colornav"></i> Comprar
-                        </a>
+                        <div id="carrito-container" class="navbar-carrito">
+                            <ul id="carrito-lista" class="list-group"></ul>
+                            <p>Total: $<span id="total">0</span></p>
+                            <button class="btn btn-primary" id="vaciar-carrito-btn">Vaciar Carrito</button>
+                            <button class="btn btn-primary" id="comprar-btn">Comprar</button>
+                        </div>
                     </li>
                 </ul>
             </div>
