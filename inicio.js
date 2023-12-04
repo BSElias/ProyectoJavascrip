@@ -512,6 +512,7 @@ async function displayProductos() {
 
 // Carrito
 function displayCarrito() {
+    const carritoContainer = document.getElementById("carrito-container");
     const carritoLista = document.getElementById("carrito-lista");
     const totalElement = document.getElementById("total");
 
@@ -520,15 +521,35 @@ function displayCarrito() {
 
     carrito.forEach(producto => {
         const li = document.createElement("li");
-        li.textContent = `${producto.marca} - ${producto.modelo} - $${producto.precio}`;
+        li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+
+        // imagen del producto 
+        const img = document.createElement("img");
+        img.src = producto.imagen;
+        img.alt = `${producto.marca} - ${producto.modelo}`;
+        img.classList.add("carrito-imagen");
+        li.appendChild(img);
+
+        // información del producto 
+        const info = document.createElement("div");
+        info.classList.add("carrito-info");
+        info.innerHTML = `<p>${producto.marca} - ${producto.modelo}</p>`;
+        
+        // Botón para quitar del carrito
         const removeButton = document.createElement("button");
         removeButton.classList.add("btn", "btn-danger");
-        removeButton.textContent = "Quitar del Carrito";
+        removeButton.textContent = "Quitar";
         removeButton.addEventListener("click", () => quitarDelCarrito(producto));
-        li.appendChild(removeButton);
+
+        info.appendChild(removeButton);
+        li.appendChild(info);
         carritoLista.appendChild(li);
     });
+
+    // Actualiza la visibilidad del contenedor
+    carritoContainer.style.display = carrito.length > 0 ? "block" : "none";
 }
+
 
 // Agregar al carrito
 function agregarAlCarrito(producto) {
@@ -550,16 +571,6 @@ function quitarDelCarrito(producto) {
         showSweetAlert("success", "¡Producto quitado!", `${producto.marca} - ${producto.modelo} se ha quitado del carrito.`);
     }
 }
-
-// Función al hacer clic del botón "Comprar"
-document.getElementById("comprar-btn").addEventListener("click", comprar);
-
-// "Ver Carrito" al hacer click
-document.getElementById("ver-carrito-btn").addEventListener("click", verCarrito);
-
-// "Vaciar Carrito"  al hacer click
-document.getElementById("vaciar-carrito-btn").addEventListener("click", vaciarCarrito);
-
 // Funcion al comprar
 function comprar() {
     showSweetAlert("success", "¡Compra realizada!", `Total: $${total}`);
@@ -580,19 +591,19 @@ function vaciarCarrito() {
     showSweetAlert("info", "Carrito vaciado", "El carrito se ha vaciado.");
 }
 
-// Función para guardar datos del carrito en localStorage
+// Funcion para guardar datos del carrito en localStorage
 function saveToLocalStorage() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-// Función para mostrar mensajes de SweetAlert2
+// Funcion para mostrar mensajes de SweetAlert2
 function showSweetAlert(icon, title, text) {
     Swal.fire({
         icon: icon,
         title: title,
         text: text,
         showConfirmButton: false,
-        timer: 1200,
+        timer: 2000,
     });
 }
 
@@ -600,3 +611,28 @@ function showSweetAlert(icon, title, text) {
 displayProductos();
 displayCarrito();
 
+
+// Funcion para actualizar el contador del carrito en la barra de navegacion
+function actualizarContadorCarrito() {
+    const contadorCarrito = document.getElementById("contador__carrito");
+    contadorCarrito.textContent = `(${carrito.length})`;
+}
+// Funcion para vaciar el carrito 
+function vaciarCarritoNavbar() {
+    vaciarCarrito();
+    actualizarContadorCarrito();
+}
+// Funcion para mostrar el carrito 
+function mostrarCarritoNavbar() {
+    verCarrito(); // Llama a tu funcion existente para mostrar el carrito
+}
+// Funcion para realizar la compra 
+function comprarDesdeNavbar() {
+    comprar();
+    actualizarContadorCarrito();
+}
+
+// Asigna eventos a los botones 
+document.getElementById("ver-carrito-btn").addEventListener("click", mostrarCarritoNavbar);
+document.getElementById("vaciar-carrito-btn").addEventListener("click", vaciarCarritoNavbar);
+document.getElementById("comprar-btn").addEventListener("click", comprarDesdeNavbar);

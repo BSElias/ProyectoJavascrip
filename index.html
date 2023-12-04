@@ -37,37 +37,38 @@
                                 <li><a class="dropdown-item colornav" href="#">Intel 16gb Pc Gamer</a></li>
                                 <li><a class="dropdown-item colornav" href="#">AMD 16gb Pc Gamer</a></li>
                                 <li><a class="dropdown-item colornav" href="#">Intel 32gb Pc Gamer</a></li>
-                                <li><a class="dropdown-item colornav" href="#">AMD 32gb Pc Gamer</a></li>
+                                <li><a class="dropdown-item col ornav" href="#">AMD 32gb Pc Gamer</a></li>
                                 <li><a class="dropdown-item colornav" href="#">Intel 64gb Pc Gamer</a></li>
                                 <li><a class="dropdown-item colornav" href="#">AMD 64gb Pc Gamer</a></li>
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
+                    <!-- <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
                         <button class="btn boton-nav" type="submit">Buscar</button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="bi bi-cart"></i> <!-- Usa el ícono que prefieras de Bootstrap Icons -->
-                    </a>
-                </li>
-            </ul>
-            </div>
-                <div id="btnCarrito" style="margin-right: 20px">
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
-                fill="currentColor" 
-                class="bi bi-cart" 
-                viewBox="0 0 16 16"
-                >
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </svg>
-                <p id="contador__carrito"></p>
+            <!-- Carrito nav -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#" id="ver-carrito-btn">
+                            <i class="bi bi-cart colornav"></i> Carrito
+                            <span id="contador__carrito">(0)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="vaciar-carrito-btn">
+                            <i class="bi bi-trash colornav"></i> Vaciar Carrito
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="comprar-btn">
+                            <i class="bi bi-credit-card colornav"></i> Comprar
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -79,36 +80,45 @@
             </div>
             <div class="container mt-4 h-cont">
                 <div class="row" id="productos-lista"></div>
-                <h3>Carrito de Compras:</h3>
-                <ul id="carrito-lista"></ul>
-                <p>Total: $<span id="total">0</span></p>
-                <button class="btn btn-primary" id="ver-carrito-btn">Ver Carrito</button>
-                <button class="btn btn-danger" id="vaciar-carrito-btn">Vaciar Carrito</button>
-                <button class="btn btn-primary" id="comprar-btn">Comprar</button>
-                <div id="message" class="mt-4"></div>
+                <div id="carrito-container" class="navbar-carrito">
+                    <ul id="carrito-lista" class="list-group"></ul>
+                    <p>Total: $<span id="total">0</span></p>
+                    <div id="message" class="mt-4"></div>
+                </div>
             </div>
         </section>
 
         <section class="container">
             <div class="row d-flex align-items-center text-center my-5">
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <p class="py-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic iste culpa inventore quibusdam. Sit placeat veritatis sunt quidem commodi mollitia nam asperiores dignissimos, beatae porro, laboriosam ducimus praesentium nisi doloribus?</p>
+                    <p class="py-5">
+                        Armamos tu PC a medida
+                        Con nuestro servicio Premium elegís los componentes, nosotros nos ocupamos del armado y la configuración y te la llevamos a tu domicilio.
+                        Además tenés:
+                        Soporte personalizado
+                        Armado en menos de 72hs.
+                        Servicio técnico Online s/Cargo por 6 meses
+                        Garantía de 1 año por componente.
+                        Servicio post-venta</p>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <img src="./img/medio.jpg" alt="Img compu">
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <p class="py-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic iste culpa inventore quibusdam. Sit placeat veritatis sunt quidem commodi mollitia nam asperiores dignissimos, beatae porro, laboriosam ducimus praesentium nisi doloribus?</p>
+                    <p class="py-5">El mejor servicio Post-Venta
+                        Si ya realizaste tu compra y querés saber más sobre el estado de tu pedido, podés ingresar tu código de seguimiento para obtener más información de dónde se encuentra y cuándo te estaría llegando.
+                        Si tuviste un problema con tu compra, nuestros asesores están disponibles para resolverlo.</p>
                 </div>
             </div>
         </section>
 
     </main>
     <footer>
-        <p class="text-footer">© 2023 Tienda Gamer</p>
+        
         <i class="bi bi-facebook"></i>
         <i class="bi bi-whatsapp"></i>
         <i class="bi bi-instagram"></i>
+        <p class="text-footer">© 2023 Tienda Gamer</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

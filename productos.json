@@ -40,36 +40,36 @@
         "marca": "Intel 16gb Pc Gamer",
         "modelo": "Intel 16g ram y video rtx 3090",
         "precio": 1500,
-        "imagen": "./img/pc/pc 2.jpg"
+        "imagen": "./img/pc/pc3.jpg"
     },
     {
         "marca": "AMD 16gb Pc Gamer",
         "modelo": "AMD 16g ram y video rtx 3090",
         "precio": 1600,
-        "imagen": "./img/pc/pc6.jpg"
-    },
-    {
-        "marca": "Intel 32gb Pc Gamer",
-        "modelo": "Intel 32gb ram y video rtx 4090",
-        "precio": 2200,
-        "imagen": "./img/pc/pc5.jpg"
-    },
-    {
-        "marca": "Intel 32gb Pc Gamer",
-        "modelo": "Intel 32gb ram y video rtx 4090",
-        "precio": 2200,
-        "imagen": "./img/pc/pc3.jpg"
-    },
-    {
-        "marca": "Intel 64gb Pc Gamer",
-        "modelo": "Intel 32gb ram y video rtx 4090",
-        "precio": 2200,
         "imagen": "./img/pc/pc4.jpg"
     },
     {
-        "marca": "AMD 64gb Pc Gamer",
-        "modelo": "AMD 32gb ram y video rtx 4090",
+        "marca": "Intel 32gb Pc Gamer",
+        "modelo": "Intel 32gb ram y video rtx 4090",
         "precio": 2200,
         "imagen": "./img/pc/pc3.jpg"
+    },
+    {
+        "marca": "Intel 32gb Pc Gamer",
+        "modelo": "Intel 32gb ram y video rtx 4090",
+        "precio": 2200,
+        "imagen": "./img/pc/pc 2.jpg"
+    },
+    {
+        "marca": "Intel 64gb Pc Gamer",
+        "modelo": "Intel 64gb ram y video rtx 4090",
+        "precio": 2200,
+        "imagen": "./img/pc/pc6.jpg"
+    },
+    {
+        "marca": "AMD 64gb Pc Gamer",
+        "modelo": "AMD 64gb ram y video rtx 4090",
+        "precio": 2200,
+        "imagen": "./img/pc/pc5.jpg"
     }
 ]
