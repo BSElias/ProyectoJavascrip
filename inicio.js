@@ -575,6 +575,7 @@ function quitarDelCarrito(producto) {
 function comprar() {
     showSweetAlert("success", "¡Compra realizada!", `Total: $${total}`);
     
+    
 }
 
 // Funcion ver carrito
@@ -589,21 +590,38 @@ function vaciarCarrito() {
     displayCarrito();
     saveToLocalStorage();
     showSweetAlert("info", "Carrito vaciado", "El carrito se ha vaciado.");
-        Swal.fire({
-            title: '¿Estas seguro?',
-            text: "Esta acción eliminará todos los productos del carrito.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Sí, eliminar',
-            cancelButtonText: 'No, Cancelar',
-            cancelButtonColor: "#d33",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                updateCartInLocalStorage([]);
-                displayCart();
-            }
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
         });
-    
+        swalWithBootstrapButtons.fire({
+        title: "¿Estas seguro?",
+        text: "Esta acción eliminará todos los productos del carrito.!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Si, borrar!",
+        cancelButtonText: "No, cancelar!",
+        reverseButtons: true
+        }).then((result) => {
+        if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire({
+                title: "Borrado!",
+                text: "Su producto a sido borrado.",
+                icon: "success"
+            });
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire({
+                title: "Cancelado",
+                text: "Tu producto esta a salvo :)",
+                icon: "error"
+            });
+        }
+    });
     
 }
 
