@@ -537,7 +537,7 @@ function displayCarrito() {
         
         // Botón para quitar del carrito
         const removeButton = document.createElement("button");
-        removeButton.classList.add("btn", "btn-danger");
+        removeButton.classList.add("btn", "btn-primary");
         removeButton.textContent = "Quitar";
         removeButton.addEventListener("click", () => quitarDelCarrito(producto));
 
@@ -589,6 +589,22 @@ function vaciarCarrito() {
     displayCarrito();
     saveToLocalStorage();
     showSweetAlert("info", "Carrito vaciado", "El carrito se ha vaciado.");
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Esta acción eliminará todos los productos del carrito.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'No, Cancelar',
+            cancelButtonColor: "#d33",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                updateCartInLocalStorage([]);
+                displayCart();
+            }
+        });
+    
+    
 }
 
 // Funcion para guardar datos del carrito en localStorage

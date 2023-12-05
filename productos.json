@@ -37,8 +37,8 @@
     },
     {
         "id": 6,
-        "marca": "Asus Rog Notebook i7",
-        "modelo": "Rog Strix Scar G634jz i9",
+        "marca": "Asus Rog Notebook i9",
+        "modelo": "Rog Strix Scar",
         "precio": 2500,
         "imagen": "./img/note/AsusR.jpg"
     },
