@@ -574,8 +574,7 @@ function quitarDelCarrito(producto) {
 // Funcion al comprar
 function comprar() {
     showSweetAlert("success", "¡Compra realizada!", `Total: $${total}`);
-    
-    
+
 }
 
 // Funcion ver carrito
